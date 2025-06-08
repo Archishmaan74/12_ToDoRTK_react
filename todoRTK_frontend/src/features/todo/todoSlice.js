@@ -12,5 +12,8 @@ export const todoSlice = createSlice({
       const todo = { id: nanoid(), textValue: action.payload };
       state.todos.push(todo);
     },
+    removeTodo: (state, action) => {
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+    },
   },
 });
