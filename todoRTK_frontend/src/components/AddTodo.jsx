@@ -8,23 +8,25 @@ function AddTodo() {
 
   const handleAddTodo = (e) => {
     e.preventDefault();
-    dispatch(addTodo(input));
+    if (input.trim() === "") return;
+    dispatch(addTodo(input.trim()));
     setInput("");
   };
+
   return (
-    <form onSubmit={handleAddTodo} className="space-x-3 mt-12">
+    <form onSubmit={handleAddTodo} className="flex gap-3 mb-6">
       <input
         type="text"
-        className="bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+        className="flex-1 bg-zinc-700 rounded px-4 py-2 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         placeholder="Enter a Todo..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
       <button
         type="submit"
-        className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+        className="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded text-white font-medium transition"
       >
-        Add Todo
+        Add
       </button>
     </form>
   );
