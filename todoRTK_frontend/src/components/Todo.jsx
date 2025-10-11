@@ -3,7 +3,7 @@ import { removeTodo, editTodo } from "../features/todo/todoSlice";
 import { useState } from "react";
 
 function Todos() {
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todo.todos);
   const dispatch = useDispatch();
 
   const [editId, setEditId] = useState(null);
